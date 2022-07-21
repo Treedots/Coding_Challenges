@@ -1,11 +1,4 @@
-Array.prototype.sameStructureAs = function (other) {
-    // Return 'true' if and only if 'other' has the same
-    // nesting structure as 'this'.
-
-    // Note: You are given a function isArray(o) that returns
-    // whether its argument is an array.
-  
-  //Check if Length is Correct.
+/*Array.prototype.sameStructureAs = function (other) {
   if (this.length != other.length)
     return false;
   
@@ -21,4 +14,12 @@ Array.prototype.sameStructureAs = function (other) {
     }
   }
   return true
+};*/
+Array.prototype.sameStructureAs = function (other) {
+
+  return (this.length === other.length) ? this.every((a,i) =>{
+    // if Array do Recursive;
+    return isArray(a) ? a.sameStructureAs(other[i]): true
+  }) : false;
 };
+
