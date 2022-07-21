@@ -1,4 +1,4 @@
-function score( dice ) {
+/*function score( dice ) {
   r = {};
   
   for(i in dice){
@@ -37,4 +37,17 @@ function score( dice ) {
     }
   }
   return s;
+}*/
+
+function score( dice ) {
+  // Fill me in!
+  dict = [0,0,0,0,0,0]
+  dice.forEach((x)=>{dict[x-1]++;})
+  sum = 0;
+  dict.forEach((x,i)=>{
+    x >= 3 ? sum += (i+1) * (i==0 ? 1000:100):0;
+    x >= 3 ? x -= 3:0;
+    (i == 0 || i == 4) && x > 0 ? sum += (i == 0 ? 100:50) * x:0;
+  })
+  return sum;
 }
