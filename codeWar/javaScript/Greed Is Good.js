@@ -45,9 +45,9 @@ function score( dice ) {
   dice.forEach((x)=>{dict[x-1]++;})
   sum = 0;
   dict.forEach((x,i)=>{
-    x >= 3 ? sum += (i+1) * (i==0 ? 1000:100):0;
-    x >= 3 ? x -= 3:0;
-    (i == 0 || i == 4) && x > 0 ? sum += (i == 0 ? 100:50) * x:0;
+    sum += x >= 3 ? (i+1) * (i==0 ? 1000:100):0;
+    x -= x >= 3 ? 3:0;
+    sum += (i == 0 || i == 4) && x > 0 ? (i == 0 ? 100:50) * x:0;
   })
   return sum;
 }
