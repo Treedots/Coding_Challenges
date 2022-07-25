@@ -1,8 +1,10 @@
 // Mainly used by Challenge 02
+
 use std::collections::HashMap;
 use std::cmp;
 /*
-  Simple Reimplementation of a Coding Challenges into Rust.
+  Simple Reimplementation of recent Coding Challenges into Rust.
+  https://replit.com/@treedotsu/GiraffeOrangeVictoriaTangoElmCarrionHonda
 */
 fn main() {
   // Run Challenge 01:
