@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::cmp;
 /*
-  Simple Reimplementation of a Coding Challenges into Rust.
+  Simple Reimplementation of a Javascript Coding Challenges into Rust.
 */
 fn main() {
     println!("Hello, world!");
@@ -10,7 +10,7 @@ fn main() {
   println!("{}",code_challenge_02("cat","ascata1tcfsh1231"));
 }
 /*
-  Challange 01
+  Challenge 01
   3 Inputs
   Input m - Number of Students
   Input n - Number of Subjects
