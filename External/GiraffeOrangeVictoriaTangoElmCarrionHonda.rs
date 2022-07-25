@@ -9,8 +9,9 @@ use std::cmp;
 fn main() {
   // Run Challenge 01:
   println!("{:?}",code_challenge_01(3,3,vec![vec![50,40,70],vec![60,80,90],vec![20,40,80]]));
+  
   // Run Challenge 02:
-  println!("{}",code_challenge_02("","ascata1tcfsh1231"));
+  println!("{}",code_challenge_02("11","ascaljasjdppqiwdLKHASDLJALSKdnqlwijeqjweoqijwelq1alsjd1asdjlaksjdlj123ta1tcfsh1231"));
   
 }
 /*
@@ -104,7 +105,6 @@ fn code_challenge_02(n:&str,m:&str) -> String{
   }
   }
   
-  
   //println!("{:?}",char_map);
   //println!("{:?}",text_map);
   
@@ -129,6 +129,7 @@ fn code_challenge_02(n:&str,m:&str) -> String{
         char_map[&ch]
       };
     let rep_text = ch.to_string().repeat(number_of_remaining as usize);
+    //Match and push to the accordingly blocks.
     match ch {
        '0'..='9' => digit_block.push(rep_text),
       'a'..='z' => lower_block.push(rep_text),
