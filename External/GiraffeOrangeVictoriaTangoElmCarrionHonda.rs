@@ -1,15 +1,14 @@
+// Mainly used by Challage 02
 use std::collections::HashMap;
 use std::cmp;
 /*
   Simple Reimplementation of a Coding Challenges into Rust.
-  https://replit.com/@treedotsu/GiraffeOrangeVictoriaTangoElmCarrionHonda
 */
 fn main() {
   // Run Challenge 01:
   println!("{:?}",code_challenge_01(3,3,vec![vec![50,40,70],vec![60,80,90],vec![20,40,80]]));
   // Run Challenge 02:
   println!("{}",code_challenge_02("","ascata1tcfsh1231"));
-
   
 }
 /*
@@ -32,12 +31,13 @@ fn code_challenge_01(m:i32,n:i32,o:Vec<Vec<i32>>) -> Vec<i32>{
       result[y as usize] += o[y as usize][x as usize];
       sum += o[y as usize][x as usize]; 
     }
-    //Check Lowest Score
+    //Check Lowest Score. No need to calculate the average.
     if lowest_score > sum{
       lowest_score = sum;
       lowest = x;
     }
   }
+  // Deduct the subject with the lowest average.
   for y in 0..m{
     result[y as usize] -= o[y as usize][lowest as usize];
   }
@@ -64,6 +64,7 @@ fn code_challenge_02(n:&str,m:&str) -> String{
   if m.is_empty(){
     return "".into();
   }
+  // Init Char HashMap and Char List.
   let mut char_map: HashMap<char,i32> = HashMap::new();
   let mut char_list: Vec<char> = vec![];
   for ch in m.chars(){
@@ -76,9 +77,11 @@ fn code_challenge_02(n:&str,m:&str) -> String{
       *count += 1;
     
   }
+  // Init Text HashMap and Char List.
   let mut text_list: Vec<char> = vec![];
   let mut text_map: HashMap<char,i32> = HashMap::new();
   let mut min_repeats = -1;
+  // Check if n is Empty
   if !n.is_empty(){
     for ch in n.chars(){
       let count = text_map.entry(ch).or_insert(0);
@@ -88,6 +91,7 @@ fn code_challenge_02(n:&str,m:&str) -> String{
       *count += 1;
        
   }
+  // Get the No of time the text need to be repeats for first time.
   for ch in text_list{
     if min_repeats == -1{
       min_repeats = char_map[&ch]/text_map[&ch];
@@ -103,15 +107,14 @@ fn code_challenge_02(n:&str,m:&str) -> String{
   //println!("{:?}",text_map);
   
   char_list.sort_by(|a, b| a.cmp(b));
-  
-  let amended_text = format!("{}-",n);
+  //Generate Front Block of Text;
   let front = if min_repeats >0{
-    amended_text.repeat(min_repeats as usize)
+    format!("{}-",n).repeat(min_repeats as usize)
   }
     else{
       "".into()
     };
-  
+  //Generate Lower/Upper/Digit Block;
   let mut lower_block:Vec<String> = Vec::new();
   let mut upper_block:Vec<String> = Vec::new();
   let mut digit_block:Vec<String> = Vec::new();
