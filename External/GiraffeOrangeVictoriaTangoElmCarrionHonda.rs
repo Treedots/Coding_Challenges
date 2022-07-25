@@ -1,4 +1,4 @@
-// Mainly used by Challage 02
+// Mainly used by Challenge 02
 use std::collections::HashMap;
 use std::cmp;
 /*
